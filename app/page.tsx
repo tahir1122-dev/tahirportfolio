@@ -23,10 +23,10 @@ export default function Home() {
             <CursorGlow />
             <CommandPalette />
 
-            <div className="relative min-h-screen">
+            <div className="relative min-h-screen overflow-x-hidden w-full max-w-full">
                 <Header />
 
-                <main className="relative">
+                <main className="relative overflow-x-hidden w-full">
                     <HeroSection />
 
                     <div id="about">

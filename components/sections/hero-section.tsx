@@ -25,7 +25,7 @@ export function HeroSection() {
     }, []);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full max-w-full">
             {/* Video Background */}
             <video
                 autoPlay
@@ -38,7 +38,7 @@ export function HeroSection() {
             </video>
 
             {/* Background Overlays */}
-            <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 -z-10 overflow-hidden">
 
 
                 {/* Floating orbs — subtle */}
@@ -99,10 +99,10 @@ export function HeroSection() {
                             className="font-black text-white leading-[0.95] tracking-tight"
                             style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.7), 0 8px 60px rgba(0,0,0,0.5)' }}
                         >
-                            <span className="block text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 tracking-normal">
+                            <span className="block text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light text-white mb-1 sm:mb-2 tracking-normal">
                                 Muhammad
                             </span>
-                            <span className="block text-7xl md:text-[8rem] lg:text-[10rem] text-white leading-none"
+                            <span className="block text-4xl sm:text-5xl md:text-[8rem] lg:text-[10rem] text-white leading-none"
                                 style={{ letterSpacing: '-0.04em' }}
                             >
                                 Tahir
@@ -127,7 +127,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.35 }}
-                        className="mb-5 h-10 flex items-center justify-center"
+                        className="mb-4 sm:mb-5 h-8 sm:h-10 flex items-center justify-center px-4"
                     >
                         <AnimatePresence mode="wait">
                             <motion.h2
@@ -136,7 +136,7 @@ export function HeroSection() {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -12 }}
                                 transition={{ duration: 0.35 }}
-                                className="text-lg md:text-xl font-bold tracking-[0.2em] uppercase text-white"
+                                className="text-xs sm:text-sm md:text-lg lg:text-xl font-bold tracking-[0.15em] sm:tracking-[0.2em] uppercase text-white text-center"
                                 style={{ textShadow: '0 1px 4px rgba(0,0,0,1), 0 2px 15px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.7)' }}
                             >
                                 {roles[currentRole]}
@@ -149,7 +149,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="text-base md:text-lg text-white font-normal mb-12 max-w-lg mx-auto leading-relaxed"
+                        className="text-sm sm:text-base md:text-lg text-white font-normal mb-8 sm:mb-12 max-w-xs sm:max-w-md lg:max-w-lg mx-auto leading-relaxed px-4"
                         style={{ textShadow: '0 1px 4px rgba(0,0,0,1), 0 2px 15px rgba(0,0,0,0.9), 0 4px 30px rgba(0,0,0,0.7)' }}
                     >
                         {personalInfo.tagline}
@@ -160,18 +160,18 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
-                        className="flex flex-wrap gap-4 justify-center mb-14"
+                        className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center mb-10 sm:mb-14 px-4"
                     >
                         <a
                             href="#projects"
-                            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-sm font-semibold group bg-white text-gray-900 hover:bg-gray-100 border-0 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-300"
+                            className="inline-flex items-center justify-center h-11 sm:h-12 px-6 sm:px-8 rounded-md text-sm sm:text-base font-semibold group bg-white text-gray-900 hover:bg-gray-100 border-0 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all duration-300 w-full sm:w-auto"
                         >
                             View My Work
                             <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
                         </a>
                         <a
                             href="#contact"
-                            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-sm font-medium border-white/40 bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 hover:border-white/60 border transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+                            className="inline-flex items-center justify-center h-11 sm:h-12 px-6 sm:px-8 rounded-md text-sm sm:text-base font-medium border-white/40 bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 hover:border-white/60 border transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] w-full sm:w-auto"
                         >
                             Contact Me
                         </a>

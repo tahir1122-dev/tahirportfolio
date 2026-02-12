@@ -11,15 +11,15 @@ export function TestimonialsSection() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="py-24 relative overflow-hidden">
-            <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden w-full max-w-full">
+            <div className="container mx-auto px-4 w-full max-w-full">
                 <SectionWrapper>
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-12 sm:mb-14 md:mb-16">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-bold mb-4"
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
                         >
                             Testimonials
                         </motion.h2>
@@ -27,13 +27,13 @@ export function TestimonialsSection() {
                             initial={{ opacity: 0, scaleX: 0 }}
                             whileInView={{ opacity: 1, scaleX: 1 }}
                             viewport={{ once: true }}
-                            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
+                            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
                         />
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-muted-foreground max-w-2xl mx-auto"
+                            className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4"
                         >
                             What clients and colleagues say about working with me
                         </motion.p>
@@ -45,7 +45,7 @@ export function TestimonialsSection() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="max-w-4xl mx-auto mb-12 group"
+                        className="max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12 group w-full">
                     >
                         <Card className="glass dark:glass-dark border-2 relative overflow-hidden">
                             <CardContent className="p-8 md:p-12">

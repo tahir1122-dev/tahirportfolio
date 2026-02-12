@@ -21,15 +21,15 @@ export function ProjectsSection() {
         : projects.filter(p => p.category === filter);
 
     return (
-        <section className="py-24 relative">
-            <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden w-full max-w-full">
+            <div className="container mx-auto px-4 w-full max-w-full">
                 <SectionWrapper>
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-12 sm:mb-14 md:mb-16">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-bold mb-4"
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
                         >
                             Featured Projects
                         </motion.h2>
@@ -37,7 +37,7 @@ export function ProjectsSection() {
                             initial={{ opacity: 0, scaleX: 0 }}
                             whileInView={{ opacity: 1, scaleX: 1 }}
                             viewport={{ once: true }}
-                            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8"
+                            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 sm:mb-8"
                         />
 
                         {/* Filter Buttons */}
@@ -45,14 +45,14 @@ export function ProjectsSection() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="flex flex-wrap gap-2 justify-center"
+                            className="flex flex-wrap gap-2 justify-center px-4"
                         >
                             {categories.map((category) => (
                                 <Button
                                     key={category}
                                     variant={filter === category ? "default" : "outline"}
                                     onClick={() => setFilter(category)}
-                                    className="rounded-full"
+                                    className="rounded-full text-xs sm:text-sm px-3 sm:px-4 h-8 sm:h-10"
                                 >
                                     {category}
                                 </Button>
@@ -60,7 +60,7 @@ export function ProjectsSection() {
                         </motion.div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                         {filteredProjects.map((project, index) => (
                             <motion.div
                                 key={project.id}
@@ -89,11 +89,11 @@ export function ProjectsSection() {
                                         </div>
                                     </div>
 
-                                    <CardContent className="p-6">
-                                        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                                    <CardContent className="p-4 sm:p-5 md:p-6">
+                                        <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                                             {project.title}
                                         </h3>
-                                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                                        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-2">
                                             {project.description}
                                         </p>
 

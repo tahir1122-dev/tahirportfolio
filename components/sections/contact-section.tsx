@@ -88,17 +88,17 @@ export function ContactSection() {
     ];
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden w-full max-w-full">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
-            <div className="container mx-auto px-4 relative">
+            <div className="container mx-auto px-4 relative w-full max-w-full">
                 <SectionWrapper>
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-12 sm:mb-14 md:mb-16">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-bold mb-4"
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
                         >
                             Get In Touch
                         </motion.h2>
@@ -106,21 +106,21 @@ export function ContactSection() {
                             initial={{ opacity: 0, scaleX: 0 }}
                             whileInView={{ opacity: 1, scaleX: 1 }}
                             viewport={{ once: true }}
-                            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
+                            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
                         />
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-muted-foreground max-w-2xl mx-auto"
+                            className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4"
                         >
                             Have a project in mind? Let's work together to create something amazing
                         </motion.p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
                         {/* Contact Info */}
-                        <div className="space-y-6">
+                        <div className="space-y-4 sm:space-y-6">
                             {contactInfo.map((info, index) => {
                                 // Define gradient colors for each card
                                 const gradients = [

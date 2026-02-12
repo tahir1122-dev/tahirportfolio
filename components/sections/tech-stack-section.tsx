@@ -112,21 +112,21 @@ export function TechStackSection() {
     const dotTop = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden w-full max-w-full">
             {/* Ambient effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent" />
             <div className="absolute top-1/3 -left-40 w-80 h-80 bg-blue-500/8 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-1/3 -right-40 w-80 h-80 bg-purple-500/8 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="container mx-auto px-4 relative">
+            <div className="container mx-auto px-4 relative w-full max-w-full">
                 <SectionWrapper>
                     {/* Header */}
-                    <div className="text-center mb-12">
+                    <div className="text-center mb-10 sm:mb-12">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-bold mb-4"
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
                         >
                             Tech Stack
                         </motion.h2>
@@ -134,20 +134,20 @@ export function TechStackSection() {
                             initial={{ opacity: 0, scaleX: 0 }}
                             whileInView={{ opacity: 1, scaleX: 1 }}
                             viewport={{ once: true }}
-                            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
+                            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
                         />
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-muted-foreground max-w-2xl mx-auto"
+                            className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4"
                         >
                             Technologies and tools I use to bring ideas to life
                         </motion.p>
                     </div>
 
                     {/* Infinite carousel */}
-                    <div className="mb-16">
+                    <div className="mb-12 sm:mb-14 md:mb-16">
                         <InfiniteMarquee skills={firstHalf} direction="left" speed={28} />
                         <InfiniteMarquee skills={secondHalf} direction="right" speed={32} />
                     </div>

@@ -40,8 +40,8 @@ export function Header() {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <nav className="container mx-auto px-4">
-                <div className="flex items-center justify-between h-16">
+            <nav className="container mx-auto px-3 sm:px-4">
+                <div className="flex items-center justify-between h-14 sm:h-16">
                     {/* Logo */}
                     <motion.a
                         href="#"
@@ -52,15 +52,15 @@ export function Header() {
                         <NextImage
                             src="/assests/Main Logo.png"
                             alt={personalInfo.name}
-                            width={120}
-                            height={40}
-                            className="h-10 w-auto object-contain"
+                            width={100}
+                            height={36}
+                            className="h-8 sm:h-10 w-auto object-contain"
                             priority
                         />
                     </motion.a>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1">
+                    <div className="hidden md:flex items-center gap-0.5 lg:gap-1">
                         {navItems.map((item, index) => (
                             <motion.div
                                 key={item.label}
@@ -71,7 +71,7 @@ export function Header() {
                                 <a href={item.href}>
                                     <Button
                                         variant="ghost"
-                                        className={`transition-colors duration-300 ${isScrolled
+                                        className={`transition-colors duration-300 text-sm lg:text-base px-2 lg:px-3 ${isScrolled
                                             ? "hover:bg-primary/10"
                                             : "text-white/90 hover:text-white hover:bg-white/15"
                                             }`}
@@ -114,14 +114,14 @@ export function Header() {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3 }}
-                            className={`md:hidden overflow-hidden ${!isScrolled ? "bg-black/40 backdrop-blur-md rounded-lg" : ""}`}
+                            className={`md:hidden overflow-hidden ${!isScrolled ? "bg-black/40 backdrop-blur-md rounded-lg mt-2" : "mt-2"}`}
                         >
-                            <div className="py-4 space-y-2">
+                            <div className="py-3 sm:py-4 space-y-1 sm:space-y-2">
                                 {navItems.map((item) => (
                                     <a key={item.label} href={item.href}>
                                         <Button
                                             variant="ghost"
-                                            className={`w-full justify-start ${!isScrolled ? "text-white hover:bg-white/15" : ""}`}
+                                            className={`w-full justify-start text-sm sm:text-base ${!isScrolled ? "text-white hover:bg-white/15" : ""}`}
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
                                             {item.label}

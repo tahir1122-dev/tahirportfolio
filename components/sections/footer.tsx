@@ -28,32 +28,32 @@ export function Footer() {
     ];
 
     return (
-        <footer className="relative border-t bg-gradient-to-b from-background to-muted/20">
-            <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <footer className="relative border-t bg-gradient-to-b from-background to-muted/20 overflow-hidden w-full max-w-full">
+            <div className="container mx-auto px-4 py-8 sm:py-10 md:py-12 w-full max-w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
                     {/* Brand */}
-                    <div>
-                        <a href="#" className="inline-block mb-4">
+                    <div className="text-center sm:text-left">
+                        <a href="#" className="inline-block mb-3 sm:mb-4">
                             <NextImage
                                 src="/assests/Main Logo.png"
                                 alt={personalInfo.name}
-                                width={120}
-                                height={40}
-                                className="h-10 w-auto object-contain"
+                                width={100}
+                                height={36}
+                                className="h-8 sm:h-10 w-auto object-contain"
                             />
                         </a>
-                        <p className="text-muted-foreground mb-4">
+                        <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
                             {personalInfo.title}
                         </p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-xs sm:text-sm text-muted-foreground">
                             {personalInfo.tagline}
                         </p>
                     </div>
 
                     {/* Quick Links */}
-                    <div>
-                        <h4 className="font-semibold mb-4">Quick Links</h4>
-                        <ul className="space-y-2">
+                    <div className="text-center sm:text-left">
+                        <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h4>
+                        <ul className="space-y-1.5 sm:space-y-2">
                             {footerLinks.map((link) => (
                                 <li key={link.title}>
                                     <a
@@ -68,9 +68,9 @@ export function Footer() {
                     </div>
 
                     {/* Social & Contact */}
-                    <div>
-                        <h4 className="font-semibold mb-4">Connect</h4>
-                        <div className="flex gap-2 mb-4">
+                    <div className="text-center sm:text-left sm:col-span-2 md:col-span-1">
+                        <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Connect</h4>
+                        <div className="flex gap-2 mb-3 sm:mb-4 justify-center sm:justify-start">
                             {socialLinks.map((social) => (
                                 <a
                                     key={social.label}
@@ -96,8 +96,8 @@ export function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-sm text-muted-foreground flex items-center gap-2">
+                <div className="border-t pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+                    <p className="text-xs sm:text-sm text-muted-foreground flex items-center gap-2 text-center">
                         © {currentYear} {personalInfo.name}
                     </p>
 

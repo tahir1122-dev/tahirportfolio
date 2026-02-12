@@ -18,7 +18,7 @@ const gradients = [
 
 export function ServicesSection() {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden w-full max-w-full">
             {/* Animated Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-purple-50/30 to-transparent dark:from-blue-950/20 dark:via-purple-950/10" />
 
@@ -50,16 +50,16 @@ export function ServicesSection() {
                 }}
             />
 
-            <div className="container mx-auto px-4 relative">
+            <div className="container mx-auto px-4 relative w-full max-w-full">
                 <SectionWrapper>
-                    <div className="text-center mb-20">
+                    <div className="text-center mb-12 sm:mb-16 md:mb-20">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.5 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="inline-block mb-4"
+                            className="inline-block mb-3 sm:mb-4"
                         >
-                            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-semibold">
+                            <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold">
                                 What I Offer
                             </span>
                         </motion.div>
@@ -68,7 +68,7 @@ export function ServicesSection() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-900 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent"
+                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-900 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent px-4"
                         >
                             Services
                         </motion.h2>
@@ -77,7 +77,7 @@ export function ServicesSection() {
                             initial={{ opacity: 0, scaleX: 0 }}
                             whileInView={{ opacity: 1, scaleX: 1 }}
                             viewport={{ once: true }}
-                            className="w-32 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto mb-6 rounded-full"
+                            className="w-24 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto mb-4 sm:mb-6 rounded-full"
                         />
 
                         <motion.p
@@ -85,13 +85,13 @@ export function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
+                            className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-4"
                         >
                             Comprehensive solutions tailored to your needs
                         </motion.p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
                         {services.map((service, index) => {
                             const Icon = (LucideIcons as any)[service.icon] || LucideIcons.Star;
                             const gradient = gradients[index % gradients.length];
@@ -153,11 +153,11 @@ function ServiceCard({ service, Icon, gradient, index }: any) {
                     <div className="mb-6">
                         <Icon
                             className={`h-12 w-12 lg:h-14 lg:w-14 ${gradient.includes('blue-500') ? 'text-blue-500' :
-                                    gradient.includes('purple-500') ? 'text-purple-500' :
-                                        gradient.includes('cyan-500') ? 'text-cyan-500' :
-                                            gradient.includes('emerald-500') ? 'text-emerald-500' :
-                                                gradient.includes('orange-500') ? 'text-orange-500' :
-                                                    'text-indigo-500'
+                                gradient.includes('purple-500') ? 'text-purple-500' :
+                                    gradient.includes('cyan-500') ? 'text-cyan-500' :
+                                        gradient.includes('emerald-500') ? 'text-emerald-500' :
+                                            gradient.includes('orange-500') ? 'text-orange-500' :
+                                                'text-indigo-500'
                                 }`}
                             strokeWidth={1.5}
                         />
