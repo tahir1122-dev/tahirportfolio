@@ -1,0 +1,10 @@
+# Sitemap
+User-agent: *
+Allow: /
+
+# Disallow admin areas (if you add them later)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://yourwebsite.com/sitemap.xml
