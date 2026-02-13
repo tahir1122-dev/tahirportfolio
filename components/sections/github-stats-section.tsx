@@ -2,7 +2,7 @@
 
 import { SectionWrapper } from "@/components/section-wrapper";
 import { motion } from "framer-motion";
-import { Github, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 import { GITHUB_USERNAME } from "@/lib/github";
 import { GitHubCalendar } from 'react-github-calendar';
 import 'react-github-calendar/tooltips.css';
@@ -38,40 +38,30 @@ export function GitHubStatsSection() {
             <div className="container mx-auto px-4 relative z-10">
                 <SectionWrapper>
                     {/* Title */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-16"
-                    >
-                        <motion.div
-                            className="inline-block mb-4"
-                            animate={{
-                                boxShadow: [
-                                    "0 0 20px rgba(59, 130, 246, 0.3)",
-                                    "0 0 60px rgba(59, 130, 246, 0.5)",
-                                    "0 0 20px rgba(59, 130, 246, 0.3)"
-                                ]
-                            }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                        >
-                            <Github className="w-16 h-16 text-primary dark:text-cyan-400" />
-                        </motion.div>
-
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                            Developer Activity
-                        </h2>
-                        <p className="text-xl text-muted-foreground dark:text-cyan-400/80 font-light tracking-wider">
-                            Open Source Contributions
-                        </p>
-
-                        <motion.div
-                            initial={{ scaleX: 0 }}
-                            whileInView={{ scaleX: 1 }}
+                    <div className="text-center mb-12 sm:mb-14 md:mb-16">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="h-1 w-32 mx-auto mt-6 bg-gradient-to-r from-primary to-purple-500 dark:from-cyan-500 dark:to-purple-500 rounded-full"
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+                        >
+                            Developer Activity
+                        </motion.h2>
+                        <motion.div
+                            initial={{ opacity: 0, scaleX: 0 }}
+                            whileInView={{ opacity: 1, scaleX: 1 }}
+                            viewport={{ once: true }}
+                            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
                         />
-                    </motion.div>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4"
+                        >
+                            Open Source Contributions
+                        </motion.p>
+                    </div>
 
                     {/* GitHub Contribution Calendar */}
                     <motion.div

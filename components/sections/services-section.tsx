@@ -59,9 +59,7 @@ export function ServicesSection() {
                             viewport={{ once: true }}
                             className="inline-block mb-3 sm:mb-4"
                         >
-                            <span className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold">
-                                What I Offer
-                            </span>
+
                         </motion.div>
 
                         <motion.h2

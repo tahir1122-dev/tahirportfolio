@@ -5,14 +5,103 @@ import { testimonials } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
-import { useState } from "react";
+import { Testimonial } from "@/types";
 
-export function TestimonialsSection() {
-    const [activeIndex, setActiveIndex] = useState(0);
+/* ------------------------------------------------------------------ */
+/*  Testimonial Card Component                                         */
+/* ------------------------------------------------------------------ */
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+    return (
+        <Card className="group/card w-[280px] sm:w-[320px] flex-shrink-0 h-[260px] bg-card/50 backdrop-blur-sm border-border/50 mx-4 flex flex-col justify-between hover:bg-card/80 transition-colors duration-300 relative overflow-hidden">
+            <CardContent className="p-6 flex flex-col h-full relative z-10">
+                <div className="mb-4">
+                    <Quote className="h-6 w-6 text-primary/60 mb-2" />
+                    <p className="text-sm text-foreground/90 line-clamp-5 leading-relaxed italic">
+                        "{testimonial.content}"
+                    </p>
+                </div>
+
+                <div className="mt-auto pt-4 border-t border-border/30 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-md">
+                        {testimonial.name.charAt(0)}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                        <div className="font-bold text-sm truncate">{testimonial.name}</div>
+                        <div className="text-xs text-muted-foreground truncate">
+                            {testimonial.position} at {testimonial.company}
+                        </div>
+                        <div className="flex gap-0.5 mt-1">
+                            {Array.from({ length: testimonial.rating }).map((_, i) => (
+                                <Star key={i} className="h-3 w-3 fill-amber-400 text-amber-400" />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </CardContent>
+
+            {/* Bottom Gradient Border on Hover - Animated */}
+            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-500 to-purple-500 scale-x-0 group-hover/card:scale-x-100 transition-transform duration-500 ease-out origin-left z-20" />
+        </Card>
+    );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Infinite Marquee Component                                         */
+/* ------------------------------------------------------------------ */
+function InfiniteMarquee({
+    items,
+    direction = "left",
+    speed = 50,
+}: {
+    items: Testimonial[];
+    direction?: "left" | "right";
+    speed?: number;
+}) {
+    const tripled = [...items, ...items, ...items];
 
     return (
-        <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden w-full max-w-full">
-            <div className="container mx-auto px-4 w-full max-w-full">
+        <div className="relative overflow-hidden py-4 group/marquee">
+            {/* Fade gradients at edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+
+            <style>
+                {`
+                    @keyframes marquee-left {
+                        0% { transform: translateX(0%); }
+                        100% { transform: translateX(-33.333%); }
+                    }
+                    @keyframes marquee-right {
+                        0% { transform: translateX(-33.333%); }
+                        100% { transform: translateX(0%); }
+                    }
+                `}
+            </style>
+
+            <div
+                className="flex w-max group-hover/marquee:[animation-play-state:paused!important]"
+                style={{
+                    animation: `marquee-${direction} ${speed}s linear infinite`
+                }}
+            >
+                {tripled.map((item, i) => (
+                    <TestimonialCard key={`${item.id}-${i}`} testimonial={item} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Main Section                                                       */
+/* ------------------------------------------------------------------ */
+export function TestimonialsSection() {
+    const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
+    const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
+
+    return (
+        <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 w-full">
                 <SectionWrapper>
                     <div className="text-center mb-12 sm:mb-14 md:mb-16">
                         <motion.h2
@@ -39,106 +128,11 @@ export function TestimonialsSection() {
                         </motion.p>
                     </div>
 
-                    {/* Featured Testimonial */}
-                    <motion.div
-                        key={activeIndex}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12 group w-full">
-
-                        <Card className="glass dark:glass-dark border-2 relative overflow-hidden">
-                            <CardContent className="p-8 md:p-12">
-                                <Quote className="h-12 w-12 text-primary mb-6 opacity-50" />
-
-                                <p className="text-xl md:text-2xl font-medium mb-8 leading-relaxed">
-                                    "{testimonials[activeIndex].content}"
-                                </p>
-
-                                <div className="flex items-center gap-4">
-                                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white text-2xl font-bold">
-                                        {testimonials[activeIndex].name.charAt(0)}
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-lg">
-                                            {testimonials[activeIndex].name}
-                                        </div>
-                                        <div className="text-sm text-muted-foreground">
-                                            {testimonials[activeIndex].position} at {testimonials[activeIndex].company}
-                                        </div>
-                                        <div className="flex gap-1 mt-2">
-                                            {Array.from({ length: testimonials[activeIndex].rating }).map((_, i) => (
-                                                <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </CardContent>
-
-                            {/* Bottom border accent - purple to pink gradient */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-purple-500 to-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full" />
-                        </Card>
-                    </motion.div>
-
-                    {/* Testimonial Navigation */}
-                    <div className="flex justify-center gap-2">
-                        {testimonials.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setActiveIndex(index)}
-                                className={`w-3 h-3 rounded-full transition-all ${index === activeIndex
-                                    ? "bg-primary w-8"
-                                    : "bg-muted hover:bg-primary/50"
-                                    }`}
-                            />
-                        ))}
+                    <div className="space-y-8">
+                        <InfiniteMarquee items={firstRow} direction="left" speed={60} />
+                        <InfiniteMarquee items={secondRow} direction="right" speed={60} />
                     </div>
 
-                    {/* All Testimonials Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-                        {testimonials.map((testimonial, index) => (
-                            <motion.div
-                                key={testimonial.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                onClick={() => setActiveIndex(index)}
-                                className="cursor-pointer group"
-                            >
-                                <Card className="h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 relative overflow-hidden">
-                                    <CardContent className="p-6">
-                                        <div className="flex gap-1 mb-3">
-                                            {Array.from({ length: testimonial.rating }).map((_, i) => (
-                                                <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                                            ))}
-                                        </div>
-
-                                        <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                                            "{testimonial.content}"
-                                        </p>
-
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">
-                                                {testimonial.name.charAt(0)}
-                                            </div>
-                                            <div>
-                                                <div className="font-semibold text-sm">
-                                                    {testimonial.name}
-                                                </div>
-                                                <div className="text-xs text-muted-foreground">
-                                                    {testimonial.position}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </CardContent>
-
-                                    {/* Bottom border accent - purple to pink gradient */}
-                                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-purple-500 to-pink-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-full" />
-                                </Card>
-                            </motion.div>
-                        ))}
-                    </div>
                 </SectionWrapper>
             </div>
         </section>

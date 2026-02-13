@@ -202,6 +202,54 @@ export const testimonials: Testimonial[] = [
         company: "StartUp Labs",
         content: "Tahir brings both technical excellence and great communication skills. He transformed our ideas into beautiful, functional applications that exceeded our expectations.",
         rating: 5
+    },
+    {
+        id: "4",
+        name: "Abdul Wahab",
+        position: "Senior Developer",
+        company: "Wanological Solutions",
+        content: "Working alongside Tahir has been an incredible experience. His problem-solving skills and dedication to writing clean, maintainable code make him an invaluable team member. Always ready to help and share knowledge.",
+        rating: 5
+    },
+    {
+        id: "5",
+        name: "Umer Daraz",
+        position: "Full Stack Developer",
+        company: "Wanological Solutions",
+        content: "Tahir's deep understanding of both frontend and backend technologies is impressive. He consistently delivers high-quality solutions and his collaborative approach makes complex projects feel manageable.",
+        rating: 5
+    },
+    {
+        id: "6",
+        name: "Abdul Wassy",
+        position: "Backend Developer",
+        company: "Wanological Solutions",
+        content: "I've had the pleasure of collaborating with Tahir on multiple projects. His expertise in Node.js and modern web frameworks, combined with his attention to detail, makes him an exceptional developer. Highly recommend!",
+        rating: 5
+    },
+    {
+        id: "7",
+        name: "Ahmed Hassan",
+        position: "Lead Developer",
+        company: "Tech Bridge Solutions",
+        content: "Tahir's ability to quickly understand complex requirements and translate them into elegant solutions is remarkable. His work ethic and technical knowledge are top-notch.",
+        rating: 5
+    },
+    {
+        id: "8",
+        name: "Fatima Ali",
+        position: "Project Manager",
+        company: "Innovation Hub",
+        content: "From planning to deployment, Tahir demonstrated exceptional professionalism. He delivered pixel-perfect implementations ahead of schedule and was always available for discussions and iterations.",
+        rating: 5
+    },
+    {
+        id: "9",
+        name: "Bilal Khan",
+        position: "Tech Lead",
+        company: "Digital Ventures",
+        content: "Tahir's expertise in modern JavaScript frameworks and AI integration helped us launch our product successfully. His commitment to quality and continuous learning is truly inspiring.",
+        rating: 5
     }
 ];
 

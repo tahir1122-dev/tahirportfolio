@@ -47,8 +47,17 @@ export function AboutSection() {
                             initial={{ opacity: 0, scaleX: 0 }}
                             whileInView={{ opacity: 1, scaleX: 1 }}
                             viewport={{ once: true }}
-                            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"
+                            className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4"
                         />
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-4"
+                        >
+                            Passionate developer crafting digital experiences
+                        </motion.p>
+
                     </div>
 
                     <div className="max-w-5xl mx-auto">
