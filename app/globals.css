@@ -88,7 +88,7 @@
     .gradient-text {
         @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500;
     }
-    
+
     /* Prevent horizontal scroll */
     .no-scrollbar-x {
         overflow-x: hidden;
@@ -257,6 +257,118 @@ html {
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
+}
+
+/* GitHub Calendar Styles */
+.github-calendar-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.github-calendar-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.github-calendar-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.dark .github-calendar-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.github-calendar-container::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 4px;
+}
+
+.dark .github-calendar-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 245, 255, 0.3);
+}
+
+.github-calendar-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.5);
+}
+
+.dark .github-calendar-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 245, 255, 0.5);
+}
+
+/* GitHub Calendar Custom Theme */
+.react-activity-calendar {
+    width: 100%;
+}
+
+.react-activity-calendar__count {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+}
+
+.dark .react-activity-calendar__count {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.react-activity-calendar__legend-colors {
+    margin-top: 8px;
+}
+
+/* Light theme calendar adjustments */
+.react-activity-calendar text {
+    fill: rgba(0, 0, 0, 0.6);
+}
+
+.dark .react-activity-calendar text {
+    fill: rgba(255, 255, 255, 0.6);
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card:hover {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.02));
+    border-color: rgba(0, 245, 255, 0.3);
+}
+
+/* Neon Glow Effect */
+.neon-glow {
+    box-shadow:
+        0 0 5px rgba(0, 245, 255, 0.5),
+        0 0 10px rgba(0, 245, 255, 0.3),
+        0 0 20px rgba(0, 245, 255, 0.2);
+}
+
+.neon-glow:hover {
+    box-shadow:
+        0 0 10px rgba(0, 245, 255, 0.8),
+        0 0 20px rgba(0, 245, 255, 0.5),
+        0 0 40px rgba(0, 245, 255, 0.3);
+}
+
+/* Cyber Grid Animation */
+@keyframes gridPulse {
+
+    0%,
+    100% {
+        opacity: 0.03;
+    }
+
+    50% {
+        opacity: 0.06;
+    }
+}
+
+.cyber-grid {
+    animation: gridPulse 4s ease-in-out infinite;
 }
 
 /* Print styles */

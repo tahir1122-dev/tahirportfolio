@@ -46,7 +46,7 @@ export function TestimonialsSection() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         className="max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12 group w-full">
-                    >
+
                         <Card className="glass dark:glass-dark border-2 relative overflow-hidden">
                             <CardContent className="p-8 md:p-12">
                                 <Quote className="h-12 w-12 text-primary mb-6 opacity-50" />

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Send, Loader2, AlertCircle, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { personalInfo } from "@/data/portfolio";
 import { useToast } from "@/hooks/use-toast";
@@ -136,11 +136,6 @@ export function ContactSection() {
 
         // Validate all fields before submission
         if (!validateForm()) {
-            toast({
-                title: "Validation Error",
-                description: "Please fix the errors in the form",
-                variant: "destructive",
-            });
             return;
         }
 
@@ -351,161 +346,89 @@ export function ContactSection() {
                                     <form onSubmit={handleSubmit} className="space-y-6">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
-                                                <label htmlFor="name" className={`text-sm font-medium transition-colors ${errors.name && touched.name ? 'text-red-500' : ''
-                                                    }`}>
+                                                <label htmlFor="name" className="text-sm font-medium">
                                                     Name *
                                                 </label>
-                                                <div className="relative">
-                                                    <Input
-                                                        id="name"
-                                                        name="name"
-                                                        placeholder="Your Name ...."
-                                                        value={formData.name}
-                                                        onChange={handleChange}
-                                                        onBlur={handleBlur}
-                                                        className={`focus:ring-2 transition-all ${errors.name && touched.name
-                                                                ? 'border-red-500 bg-red-50 dark:bg-red-950/20 focus:ring-red-500 focus:border-red-500 shadow-red-200 dark:shadow-red-900/30 shadow-sm text-red-900 dark:text-red-100 placeholder:text-red-400'
-                                                                : formData.name && touched.name
-                                                                    ? 'border-green-500 bg-green-50 dark:bg-green-950/20 focus:ring-green-500'
-                                                                    : 'focus:ring-primary'
-                                                            }`}
-                                                    />
-                                                    {errors.name && touched.name && (
-                                                        <AlertCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-red-500 animate-pulse" />
-                                                    )}
-                                                    {!errors.name && touched.name && formData.name && (
-                                                        <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-green-500" />
-                                                    )}
-                                                </div>
+                                                <Input
+                                                    id="name"
+                                                    name="name"
+                                                    placeholder="Your Name ...."
+                                                    value={formData.name}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    className={`focus:ring-2 transition-all ${errors.name && touched.name
+                                                        ? 'border-red-500 focus:ring-red-500'
+                                                        : 'focus:ring-primary'
+                                                        }`}
+                                                />
                                                 {errors.name && touched.name && (
-                                                    <motion.div
-                                                        initial={{ opacity: 0, y: -10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        className="flex items-center gap-1 text-sm text-red-500 font-medium bg-red-50 dark:bg-red-950/30 px-3 py-1.5 rounded-md border border-red-200 dark:border-red-900"
-                                                    >
-                                                        <AlertCircle className="h-3.5 w-3.5" />
-                                                        {errors.name}
-                                                    </motion.div>
+                                                    <p className="text-xs text-red-500">{errors.name}</p>
                                                 )}
                                             </div>
 
                                             <div className="space-y-2">
-                                                <label htmlFor="email" className={`text-sm font-medium transition-colors ${errors.email && touched.email ? 'text-red-500' : ''
-                                                    }`}>
+                                                <label htmlFor="email" className="text-sm font-medium">
                                                     Email *
                                                 </label>
-                                                <div className="relative">
-                                                    <Input
-                                                        id="email"
-                                                        name="email"
-                                                        type="text"
-                                                        placeholder="Your Email....."
-                                                        value={formData.email}
-                                                        onChange={handleChange}
-                                                        onBlur={handleBlur}
-                                                        className={`focus:ring-2 transition-all ${errors.email && touched.email
-                                                                ? 'border-red-500 bg-red-50 dark:bg-red-950/20 focus:ring-red-500 focus:border-red-500 shadow-red-200 dark:shadow-red-900/30 shadow-sm text-red-900 dark:text-red-100 placeholder:text-red-400'
-                                                                : formData.email && touched.email
-                                                                    ? 'border-green-500 bg-green-50 dark:bg-green-950/20 focus:ring-green-500'
-                                                                    : 'focus:ring-primary'
-                                                            }`}
-                                                    />
-                                                    {errors.email && touched.email && (
-                                                        <AlertCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-red-500 animate-pulse" />
-                                                    )}
-                                                    {!errors.email && touched.email && formData.email && (
-                                                        <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-green-500" />
-                                                    )}
-                                                </div>
+                                                <Input
+                                                    id="email"
+                                                    name="email"
+                                                    type="text"
+                                                    placeholder="Your Email....."
+                                                    value={formData.email}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    className={`focus:ring-2 transition-all ${errors.email && touched.email
+                                                        ? 'border-red-500 focus:ring-red-500'
+                                                        : 'focus:ring-primary'
+                                                        }`}
+                                                />
                                                 {errors.email && touched.email && (
-                                                    <motion.div
-                                                        initial={{ opacity: 0, y: -10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        className="flex items-center gap-1 text-sm text-red-500 font-medium bg-red-50 dark:bg-red-950/30 px-3 py-1.5 rounded-md border border-red-200 dark:border-red-900"
-                                                    >
-                                                        <AlertCircle className="h-3.5 w-3.5" />
-                                                        {errors.email}
-                                                    </motion.div>
+                                                    <p className="text-xs text-red-500">{errors.email}</p>
                                                 )}
                                             </div>
                                         </div>
 
                                         <div className="space-y-2">
-                                            <label htmlFor="subject" className={`text-sm font-medium transition-colors ${errors.subject && touched.subject ? 'text-red-500' : ''
-                                                }`}>
+                                            <label htmlFor="subject" className="text-sm font-medium">
                                                 Subject *
                                             </label>
-                                            <div className="relative">
-                                                <Input
-                                                    id="subject"
-                                                    name="subject"
-                                                    placeholder="Project Discussion"
-                                                    value={formData.subject}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    className={`focus:ring-2 transition-all ${errors.subject && touched.subject
-                                                            ? 'border-red-500 bg-red-50 dark:bg-red-950/20 focus:ring-red-500 focus:border-red-500 shadow-red-200 dark:shadow-red-900/30 shadow-sm text-red-900 dark:text-red-100 placeholder:text-red-400'
-                                                            : formData.subject && touched.subject
-                                                                ? 'border-green-500 bg-green-50 dark:bg-green-950/20 focus:ring-green-500'
-                                                                : 'focus:ring-primary'
-                                                        }`}
-                                                />
-                                                {errors.subject && touched.subject && (
-                                                    <AlertCircle className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-red-500 animate-pulse" />
-                                                )}
-                                                {!errors.subject && touched.subject && formData.subject && (
-                                                    <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-green-500" />
-                                                )}
-                                            </div>
+                                            <Input
+                                                id="subject"
+                                                name="subject"
+                                                placeholder="Project Discussion"
+                                                value={formData.subject}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                className={`focus:ring-2 transition-all ${errors.subject && touched.subject
+                                                    ? 'border-red-500 focus:ring-red-500'
+                                                    : 'focus:ring-primary'
+                                                    }`}
+                                            />
                                             {errors.subject && touched.subject && (
-                                                <motion.div
-                                                    initial={{ opacity: 0, y: -10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    className="flex items-center gap-1 text-sm text-red-500 font-medium bg-red-50 dark:bg-red-950/30 px-3 py-1.5 rounded-md border border-red-200 dark:border-red-900"
-                                                >
-                                                    <AlertCircle className="h-3.5 w-3.5" />
-                                                    {errors.subject}
-                                                </motion.div>
+                                                <p className="text-xs text-red-500">{errors.subject}</p>
                                             )}
                                         </div>
 
                                         <div className="space-y-2">
-                                            <label htmlFor="message" className={`text-sm font-medium transition-colors ${errors.message && touched.message ? 'text-red-500' : ''
-                                                }`}>
+                                            <label htmlFor="message" className="text-sm font-medium">
                                                 Message *
                                             </label>
-                                            <div className="relative">
-                                                <Textarea
-                                                    id="message"
-                                                    name="message"
-                                                    placeholder="Tell me about your project..."
-                                                    rows={6}
-                                                    value={formData.message}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    className={`focus:ring-2 transition-all resize-none ${errors.message && touched.message
-                                                            ? 'border-red-500 bg-red-50 dark:bg-red-950/20 focus:ring-red-500 focus:border-red-500 shadow-red-200 dark:shadow-red-900/30 shadow-sm text-red-900 dark:text-red-100 placeholder:text-red-400'
-                                                            : formData.message && touched.message
-                                                                ? 'border-green-500 bg-green-50 dark:bg-green-950/20 focus:ring-green-500'
-                                                                : 'focus:ring-primary'
-                                                        }`}
-                                                />
-                                                {errors.message && touched.message && (
-                                                    <AlertCircle className="absolute right-3 top-3 h-5 w-5 text-red-500 animate-pulse" />
-                                                )}
-                                                {!errors.message && touched.message && formData.message && (
-                                                    <CheckCircle2 className="absolute right-3 top-3 h-5 w-5 text-green-500" />
-                                                )}
-                                            </div>
+                                            <Textarea
+                                                id="message"
+                                                name="message"
+                                                placeholder="Tell me about your project..."
+                                                rows={6}
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                className={`focus:ring-2 transition-all resize-none ${errors.message && touched.message
+                                                    ? 'border-red-500 focus:ring-red-500'
+                                                    : 'focus:ring-primary'
+                                                    }`}
+                                            />
                                             {errors.message && touched.message && (
-                                                <motion.div
-                                                    initial={{ opacity: 0, y: -10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    className="flex items-center gap-1 text-sm text-red-500 font-medium bg-red-50 dark:bg-red-950/30 px-3 py-1.5 rounded-md border border-red-200 dark:border-red-900"
-                                                >
-                                                    <AlertCircle className="h-3.5 w-3.5" />
-                                                    {errors.message}
-                                                </motion.div>
+                                                <p className="text-xs text-red-500">{errors.message}</p>
                                             )}
                                         </div>
 

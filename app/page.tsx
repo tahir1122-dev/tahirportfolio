@@ -8,6 +8,7 @@ import { ProjectsSection } from "@/components/sections/projects-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { ServicesSection } from "@/components/sections/services-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { GitHubStatsSection } from "@/components/sections/github-stats-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/sections/footer";
 import { ScrollProgress } from "@/components/scroll-progress";
@@ -50,6 +51,10 @@ export default function Home() {
                     </div>
 
                     <TestimonialsSection />
+
+                    <div id="github">
+                        <GitHubStatsSection />
+                    </div>
 
                     <div id="contact">
                         <ContactSection />
