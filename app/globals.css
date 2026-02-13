@@ -160,11 +160,13 @@ html {
 
 /* Base Mobile Styles (320px - 640px) */
 @media (max-width: 640px) {
-    html, body {
+
+    html,
+    body {
         max-width: 100vw;
         overflow-x: hidden;
     }
-    
+
     .container {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
