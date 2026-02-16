@@ -65,5 +65,6 @@ export interface PersonalInfo {
         linkedin: string;
         twitter: string;
         email: string;
+        upwork: string;
     };
 }

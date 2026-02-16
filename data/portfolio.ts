@@ -13,7 +13,8 @@ export const personalInfo: PersonalInfo = {
         github: "https://github.com/tahir1122-dev",
         linkedin: "https://www.linkedin.com/in/tahir-full-stack/",
         twitter: "https://twitter.com/tahir4404",
-        email: "mailto:Tm0038763@gmail.com"
+        email: "mailto:Tm0038763@gmail.com",
+        upwork: "https://www.upwork.com/freelancers/~018059deee68876f5e"
     }
 };
 

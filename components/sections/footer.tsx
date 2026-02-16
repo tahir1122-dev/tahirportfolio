@@ -2,6 +2,7 @@
 
 import { personalInfo } from "@/data/portfolio";
 import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from "lucide-react";
+import { UpworkIcon } from "@/components/icons/upwork-icon";
 import { Button } from "@/components/ui/button";
 import NextImage from "next/image";
 
@@ -15,6 +16,7 @@ export function Footer() {
     const socialLinks = [
         { icon: Github, href: personalInfo.social.github, label: "GitHub" },
         { icon: Linkedin, href: personalInfo.social.linkedin, label: "LinkedIn" },
+        { icon: UpworkIcon, href: personalInfo.social.upwork, label: "Upwork" },
         { icon: Twitter, href: personalInfo.social.twitter, label: "Twitter" },
         { icon: Mail, href: personalInfo.social.email, label: "Email" },
     ];

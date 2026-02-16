@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Mail, Twitter, ArrowDown, Minus } from "lucide-react";
+import { UpworkIcon } from "@/components/icons/upwork-icon";
 import { personalInfo } from "@/data/portfolio";
 import { useEffect, useState } from "react";
 
@@ -188,6 +189,7 @@ export function HeroSection() {
                         {[
                             { icon: Github, label: "GitHub", url: personalInfo.social.github },
                             { icon: Linkedin, label: "LinkedIn", url: personalInfo.social.linkedin },
+                            { icon: UpworkIcon, label: "Upwork", url: personalInfo.social.upwork },
                             { icon: Twitter, label: "Twitter", url: personalInfo.social.twitter },
                             { icon: Mail, label: "Email", url: personalInfo.social.email },
                         ].map(({ icon: Icon, label, url }) => (
@@ -199,7 +201,7 @@ export function HeroSection() {
                                 aria-label={label}
                                 className="inline-flex items-center justify-center h-10 w-10 text-white hover:text-white bg-black/30 hover:bg-black/50 transition-all duration-300 rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
                             >
-                                <Icon className="h-[18px] w-[18px]" />
+                                <Icon className={`h-[18px] w-[18px] ${label === "Upwork" ? "brightness-0 invert" : ""}`} />
                             </a>
                         ))}
                     </motion.div>
